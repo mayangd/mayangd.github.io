@@ -1,0 +1,919 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* SITE BACKGROUND */
+body {
+    background: url("sitebg.jpg") center / cover no-repeat fixed;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 5, 15, 0.7);
+    z-index: -1;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    height: 60px;
+    padding: 0 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-image: url("header.jpg");
+    background-size: cover;
+    background-position: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(80, 20, 35, 0.55);
+    z-index: -1;
+}
+
+.logo {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 12px;
+}
+
+.nav-links a {
+    padding: 8px 18px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.45);
+}
+
+/* HERO */
+.hero {
+    width: 100%;
+    max-width: 1400px;
+    padding: 70px 80px 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-image img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.hero-text {
+    max-width: 520px;
+}
+
+.hero-text h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.location {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.description {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.btn-more {
+    padding: 12px 34px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.85);
+    color: #7a0834;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* SECTION DIVIDER */
+.section-divider {
+    width: 120px;
+    height: 3px;
+    background: rgba(255,255,255,0.5);
+    margin: 20px auto 30px;
+    border-radius: 2px;
+}
+
+/* EDUCATION */
+.education {
+    width: 100%;
+    max-width: 1400px;
+    padding: 40px 80px;
+}
+
+.education h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.education-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.education-card {
+    background: rgba(255,255,255,0.25);
+    padding: 30px;
+    border-radius: 20px;
+    width: 520px;
+    text-align: left;
+}
+
+.edu-section {
+    margin-bottom: 16px;
+}
+
+.edu-label {
+    background: #eee;
+    color: #7a0834;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.edu-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.edu-row span {
+    white-space: nowrap;
+    opacity: 0.85;
+}
+
+.education-photo img {
+    width: 260px;
+    border-radius: 20px;
+}
+
+/* SKILLS */
+.skills {
+    width: 100%;
+    max-width: 1400px;
+    padding: 40px 80px 50px;
+    text-align: center;
+}
+
+.skills-card {
+    width: 520px;
+    margin: auto;
+    background: rgba(255,255,255,0.25);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.skills-card ul {
+    list-style: none;
+}
+
+.skills-card li {
+    margin-bottom: 8px;
+    font-size: 17px;
+}
+
+/* FOOTER */
+.footer {
+    width: 100%;
+    height: 45px;
+    background-image: url("header.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-more {
+    padding: 12px 34px;
+    border-radius: 30px;
+    border: 2px solid transparent;
+
+    background: rgba(255, 255, 255, 0.9);
+    color: #7a0834;
+
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    transition: 
+        all 0.3s ease;
+}
+
+/* Hover Effect */
+.btn-more:hover {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+
+    transform: translateY(-4px);
+    box-shadow: 
+        0 12px 25px rgba(0, 0, 0, 0.35),
+        0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* Click Effect */
+.btn-more:active {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .hero-content,
+    .education-layout {
+        flex-direction: column;
+    }
+
+    .hero,
+    .education,
+    .skills {
+        padding: 40px 30px;
+    }
+
+    .education-card,
+    .skills-card {
+        width: 100%;
+    }
+}
+
+/* ================= EXPERIENCE ================= */
+.experience {
+    width: 100%;
+    max-width: 1400px;
+    padding: 45px 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.experience h2 {
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Glass Card */
+.experience-card {
+    width: 720px;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 35px 40px;
+    border-radius: 22px;
+    backdrop-filter: blur(6px);
+}
+
+/* Subtitle */
+.exp-subtitle {
+    margin: 30px 0 20px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+/* Experience Item */
+.exp-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 28px;
+    border-left: 3px solid #7a0834;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+/* Hover Effect */
+.exp-item:hover {
+    transform: translateX(6px);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+/* Timeline Dot */
+.exp-item::before {
+    content: "";
+    position: absolute;
+    left: -9px;
+    top: 14px;
+    width: 14px;
+    height: 14px;
+    background: #7a0834;
+    border-radius: 50%;
+}
+
+/* Header Row */
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exp-header h3 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.exp-header span {
+    font-size: 14px;
+    opacity: 0.85;
+    white-space: nowrap;
+}
+
+/* Company Name */
+.company {
+    font-size: 14px;
+    margin: 6px 0 12px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Bullet List */
+.exp-item ul {
+    padding-left: 18px;
+}
+
+.exp-item li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+
+/* ================= FADE-IN ANIMATION ================= */
+.exp-item {
+    animation: fadeUp 0.6s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= PRINT MODE (CV) ================= */
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    .navbar,
+    .footer {
+        display: none;
+    }
+
+    .experience {
+        padding: 0;
+    }
+
+    .experience-card {
+        background: none;
+        backdrop-filter: none;
+        box-shadow: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .exp-item {
+        border-left: 2px solid #000;
+        background: none !important;
+        transform: none !important;
+    }
+
+    .exp-item::before {
+        background: #000;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .experience {
+        padding: 35px 30px;
+    }
+
+    .experience-card {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
+
+/* ================= CERTIFICATION ================= */
+.certification {
+    width: 100%;
+    max-width: 1400px;
+    padding: 45px 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.certification h2 {
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Glass Card */
+.certification-card {
+    width: 800px;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 35px 40px;
+    border-radius: 22px;
+    backdrop-filter: blur(6px);
+}
+
+/* Certificate Item */
+.cert-item {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cert-item:last-child {
+    border-bottom: none;
+}
+
+/* Hover */
+.cert-item:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Certificate Image */
+.cert-image img {
+    width: 180px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Certificate Details */
+.cert-details h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.cert-type {
+    font-size: 14px;
+    font-style: italic;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.cert-year {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* ================= PRINT MODE ================= */
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    .navbar,
+    .footer {
+        display: none;
+    }
+
+    .certification {
+        padding: 0;
+    }
+
+    .certification-card {
+        background: none;
+        backdrop-filter: none;
+        box-shadow: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .cert-item {
+        background: none !important;
+        transform: none !important;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .certification {
+        padding: 35px 30px;
+    }
+
+    .certification-card {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .cert-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cert-image img {
+        width: 100%;
+    }
+}
+
+/* ================= CERTIFICATE MODAL ================= */
+.cert-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.cert-modal-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+}
+
+/* Close Button */
+.cert-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    font-size: 34px;
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+
+    transition: opacity 0.3s ease;
+}
+
+.cert-close:hover {
+    opacity: 0.7;
+}
+
+/* Hover hint */
+.cert-click {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-click:hover {
+    transform: scale(1.04);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+/* ================= CONTACT ================= */
+.contact {
+    width: 100%;
+    max-width: 1400px;
+    padding: 50px 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact h2 {
+    margin-bottom: 35px;
+    letter-spacing: 3px;
+    font-size: 22px;
+    text-align: center;
+}
+
+/* ================= GLASS CARD ================= */
+.contact-card {
+    width: 920px;
+    background: rgba(255, 255, 255, 0.22);
+    padding: 45px;
+    border-radius: 26px;
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    gap: 45px;
+
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= LEFT INFO ================= */
+.contact-info {
+    flex: 1;
+}
+
+.contact-intro {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+/* Contact Item */
+.contact-item {
+    margin-bottom: 20px;
+}
+
+.contact-item span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    opacity: 0.75;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.contact-item a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-item a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.contact-item a:hover {
+    opacity: 0.85;
+    transform: translateX(3px);
+}
+
+.contact-item a:hover::after {
+    width: 100%;
+}
+
+/* ================= RIGHT VISUAL ================= */
+.contact-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-box {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+
+    background-image: url("profile.jpg");
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 35px;
+
+    position: relative;
+    overflow: hidden;
+
+    filter: saturate(0.95) contrast(1.05);
+}
+
+/* Overlay */
+.visual-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(
+        rgba(70, 20, 35, 0.65),
+        rgba(70, 20, 35, 0.45)
+    );
+}
+
+.visual-box p {
+    position: relative;
+    z-index: 2;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.6;
+    max-width: 260px;
+    color: #ffffff;
+}
+
+/* ================= VISUAL HOVER TEXT ================= */
+.visual-quote,
+.visual-name {
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visual-name {
+    position: absolute;
+    opacity: 0;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Hover effect */
+.visual-box:hover .visual-quote {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.visual-box:hover .visual-name {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ================= PRINT MODE ================= */
+@media print {
+    .navbar,
+    .footer {
+        display: none;
+    }
+
+    .contact {
+        padding: 0;
+    }
+
+    .contact-card {
+        background: none;
+        backdrop-filter: none;
+        box-shadow: none;
+        padding: 0;
+        width: 100%;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .contact {
+        padding: 40px 30px;
+    }
+
+    .contact-card {
+        flex-direction: column;
+        width: 100%;
+        padding: 35px;
+    }
+
+    .visual-box {
+        height: 180px;
+        overflow: hidden;
+    }
+
+    .visual-box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    transition: transform 0.8s ease;
+    z-index: 0;
+}
+
+.visual-box:hover::after {
+    transform: scale(1.08);
+}
+
+.visual-box::before {
+    z-index: 1;
+}
+
+
+    .visual-box p {
+        font-size: 17px;
+    }
+}
+
+.visual-identity {
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.visual-name {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.35),
+        0 0 16px rgba(255, 255, 255, 0.15);
+}
+
+.visual-role {
+    margin-top: 6px;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+.visual-box:hover .visual-quote {
+    opacity: 0;
+    transform: translateY(-12px);
+}
+
+.visual-box:hover .visual-identity {
+    opacity: 1;
+}
+
