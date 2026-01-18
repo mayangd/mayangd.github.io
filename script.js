@@ -6,7 +6,7 @@ document.querySelector(".btn-more").addEventListener("click", () => {
 
 const reveals = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
+function revealOnScroll() {
     reveals.forEach(section => {
         const top = section.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
@@ -15,4 +15,9 @@ window.addEventListener("scroll", () => {
             section.classList.add("active");
         }
     });
-});
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+/* ✅ THIS FIXES THE BLANK PAGE */
+window.addEventListener("load", revealOnScroll);
